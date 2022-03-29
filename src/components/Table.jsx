@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
+import { usersDefined } from '../providers/users';
 import {ModalMain} from './Modal';
 import '../App.css'
 import Table from '@mui/material/Table';
@@ -20,23 +21,7 @@ function Tabela(){
     }]) */
     
 
-    useEffect(() => {loadUsers()},[])
-    const [users, setUsers] = useState([{
-        name: '',
-        email: '',
-        dob:{age: 0},
-        location:{city: ''},
-        picture: {medium: ''}
-    }])
-
-    const loadUsers = async () => {
-        const request = fetch('https://randomuser.me/api/?results=5')
-        const [requests] = await Promise.all([request]);
-        const requestJson = await requests.json();
-        console.log(requestJson.results)
-        
-        setUsers(requestJson.results)
-    }
+    const {users, setUsers} = usersDefined()
 
     const filtro = () => {
       const filtragem = users.filter( a => a.gender === 'female')
@@ -48,6 +33,7 @@ function Tabela(){
     
     return(
         <>
+        <button onClick={filtro}>Pesquisar Mulheres</button>
         <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
         <TableHead>
