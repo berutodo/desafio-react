@@ -74,36 +74,7 @@ function Tabela(){
           ))}
         </TableBody>
       </Table>
-    </TableContainer>
-      <table>
-        <tr>
-          <td>Nome</td>  
-          <td>Gênero</td>  
-          <td>Aniversário</td>  
-          <td>Ações</td>  
-        </tr>
-        {users.map(
-            user => (
-        <tr key={user.name.first}>
-          <td>{user.name.first}</td>  
-          <td>{user.gender}</td>  
-          <td>{user.dob.age}</td>  
-          <td><button onClick={() => console.log(`
-            O nome ${user.gender === 'male' ? ' do vagabundo' : 'da vagabunda'} é :${user.name.first}  com idade de ${user.dob.age}
-          `)}>
-                Abrir Modal
-              </button><button onClick={filtro }>Teste</button>
-              <button onClick={loadUsers}>Recarregar</button>
-              <ModalMain user={user}/></td>
-      
-        </tr>
-        
-            )
-            
-        )}
-        
-      </table>
-      
+    </TableContainer>      
       </>
     );
 }
