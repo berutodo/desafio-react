@@ -9,30 +9,20 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import BasicTextFields from './SearchUsers';
 
 
 
 function Tabela(){
-    /* const [users, setUsers] = useState([{
-        id:10,
-        name: 'Gabriel',
-        email: 'gabriel@gmail.com',
-        phone: '123-456-111'
-    }]) */
-    
-
     const {users, setUsers} = usersDefined()
-
     const filtro = () => {
-      const filtragem = users.filter( a => a.gender === 'female')
-      console.log(filtragem.map(a => a.name.first))
+      const filtragem = users.filter(a => a.gender === 'female')
       setUsers(filtragem)
-    }
- 
-    
+  }
     
     return(
         <>
+        <BasicTextFields/>
         <button onClick={filtro}>Pesquisar Mulheres</button>
         <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
@@ -47,7 +37,7 @@ function Tabela(){
         <TableBody>
           {users.map((row) => (
             <TableRow
-              key={row.name.first}
+              key={row.email}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">

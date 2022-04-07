@@ -24,7 +24,7 @@ export function ModalMain ({user}){
       >
         <Box className="Boxstyle">
         <Stack direction="row" spacing={2}>
-            <Avatar alt={nomeCompleto} src={user.picture.medium} />
+            <Avatar alt={nomeCompleto} style={{width: '100px', height: '100px', margin: '0 auto'}} src={user.picture.large} />
         </Stack>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Nome Completo: {nomeCompleto}
